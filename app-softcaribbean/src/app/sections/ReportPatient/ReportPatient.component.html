@@ -1,0 +1,22 @@
+<div class="card" style="margin:5% ;">
+    <h5 class="card-header"><b>Pacientes</b></h5>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" *ngFor="let key of Titles">{{key}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let patient of patients">
+                    <td *ngFor="let key of objectKeys(patient)">
+                       {{patient[key]}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>
+
