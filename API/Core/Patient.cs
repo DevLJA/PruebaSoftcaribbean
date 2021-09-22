@@ -18,22 +18,22 @@ namespace Core
             PatientDataCRUD = new PatientData();
         }
 
-        public async Task InsertNewPatient(Paciente entityInsert)
+        public async Task InsertNewPatient(Persona personInsert, Paciente entityInsert)
         {
-            var person = await PersonDataCRUD.GetByWhere(x => x.Nmid == entityInsert.NmidPersona && x.Cdtipo != Constants.PATIENT);
-            if (person != null)
-            {
-                person.Cdtipo = Constants.PATIENT;
-                await PersonDataCRUD.Update(person);
-                await PatientDataCRUD.Insert(entityInsert);
-            }
-            else
-                throw new Exception(Constants.NOT_ALLOWED);
+            personInsert.PacienteNmidMedicotraNavigations = null;
+            var newPerson = await PersonDataCRUD.Insert(personInsert);
+            entityInsert.NmidPersona = newPerson.Nmid;
+            await PatientDataCRUD.Insert(entityInsert);
         }
 
         public async Task<List<Persona>> GetAllPatients()
         {
             return await PersonDataCRUD.GetListIncludeProperties(x => x.Cdtipo == Constants.PATIENT, x => x.CdtipoNavigation, x => x.CdgeneroNavigation, x => x.PacienteNmidPersonaNavigations, x => x.PacienteNmidMedicotraNavigations);
+        }
+
+        public async Task<List<Paciente>> GetAll()
+        {
+            return await PatientDataCRUD.GetListIncludeProperties(x => true, x => x.NmidPersonaNavigation, x => x.NmidPersonaNavigation.CdgeneroNavigation, x => x.NmidPersonaNavigation.CdtipoNavigation);
         }
     }
 }

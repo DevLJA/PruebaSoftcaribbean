@@ -9,7 +9,7 @@ namespace Interfaces.Data
 {
     public interface IDataCRUD<TEntity>
     {
-        Task Insert(TEntity entityInsert);
+        Task<TEntity> Insert(TEntity entityInsert);
         Task Delete(TEntity entityDelete);
         Task<TEntity> GetByWhere(Expression<Func<TEntity, bool>> where);
         Task Update(TEntity entityUpdate);

@@ -34,5 +34,17 @@ namespace PruebaSoftcaribbean.Controllers
         {
             return await GenericExecution.RunAsync(PersonService.UpdatePerson(newPerson));
         }
+        [HttpGet]
+        [Route("GetAllMedical")]
+        public async Task<GenericResponse<List<Persona>>> GetAllMedical()
+        {
+            return await GenericExecution.RunAsync(PersonService.GetAllMedical());
+        }
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<GenericResponse<List<Persona>>> GetAll()
+        {
+            return await GenericExecution.RunAsync(PersonService.GetAll());
+        }
     }
 }

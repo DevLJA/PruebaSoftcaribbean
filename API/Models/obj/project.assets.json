@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Models\\Models.csproj",
+      "projectUniqueName": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Models\\Models.csproj",
+      "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Models\\Models.csproj",
       "packagesPath": "D:\\Users\\LauraJoya\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Models\\obj\\",
+      "outputPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Programs\\Microsoft Visual Studio\\Shared\\NuGetPackages"

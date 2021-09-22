@@ -5484,11 +5484,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\PruebaSoftcaribbean\\PruebaSoftcaribbean.csproj",
+      "projectUniqueName": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\PruebaSoftcaribbean\\PruebaSoftcaribbean.csproj",
       "projectName": "PruebaSoftcaribbean",
-      "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\PruebaSoftcaribbean\\PruebaSoftcaribbean.csproj",
+      "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\PruebaSoftcaribbean\\PruebaSoftcaribbean.csproj",
       "packagesPath": "D:\\Users\\LauraJoya\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\PruebaSoftcaribbean\\obj\\",
+      "outputPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\PruebaSoftcaribbean\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Programs\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5509,11 +5509,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Core\\Core.csproj": {
-              "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Core\\Core.csproj"
+            "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Core\\Core.csproj": {
+              "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Core\\Core.csproj"
             },
-            "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Interfaces\\Interfaces.csproj"
+            "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Interfaces\\Interfaces.csproj"
             }
           }
         }

@@ -5838,11 +5838,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Data\\Data.csproj",
+      "projectUniqueName": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Data\\Data.csproj",
+      "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Data\\Data.csproj",
       "packagesPath": "D:\\Users\\LauraJoya\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Data\\obj\\",
+      "outputPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Programs\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5863,8 +5863,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Interfaces\\Interfaces.csproj": {
-              "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Interfaces\\Interfaces.csproj"
+            "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Interfaces\\Interfaces.csproj"
             }
           }
         }

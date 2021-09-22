@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZKacgEh8idD0Pefxwz8e+OQAevB7C4vogmTNTlEX0hr+v/iWRvyPuJEBr/pOlvqMTO7xF7I3p6VbE0M2Q3x31A==",
+  "dgSpecHash": "F5DSScN6lnfhOXYx+Gz+TN6rJrbV6JSRY//bTBIxUn8aIDf974m0KPl9tRBsiFRj2/79NacVU2wx8WHYG/cGiA==",
   "success": true,
-  "projectFilePath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\Core\\Core.csproj",
+  "projectFilePath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "D:\\Users\\LauraJoya\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "D:\\Users\\LauraJoya\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

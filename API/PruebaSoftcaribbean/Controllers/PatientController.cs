@@ -21,18 +21,19 @@ namespace PruebaSoftcaribbean.Controllers
             PatientService = patientService;
         }
 
-        [HttpPost]
-        [Route("CreateNewPatient")]
-        public async Task<GenericResponse<Task>> CreateNewPatient(Paciente newPerson)
-        {
-            return await GenericExecution.RunAsync(PatientService.InsertNewPatient(newPerson));
-        }
 
         [HttpGet]
         [Route("GetAllPatients")]
         public async Task<GenericResponse<List<Persona>>> GetAllPatients()
         {
             return await GenericExecution.RunAsync(PatientService.GetAllPatients());
+        }
+
+        [HttpGet]
+        [Route("GetAll")]
+        public async Task<GenericResponse<List<Paciente>>> GetAll()
+        {
+            return await GenericExecution.RunAsync(PatientService.GetAll());
         }
 
     }

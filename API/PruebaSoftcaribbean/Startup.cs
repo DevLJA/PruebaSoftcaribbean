@@ -32,8 +32,10 @@ namespace PruebaSoftcaribbean
             {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
+            services.AddCors();
             services.AddTransient(typeof(IPerson), typeof(Person));
             services.AddTransient(typeof(IPatient), typeof(Patient));
+            services.AddTransient(typeof(ITypes), typeof(Types));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +49,12 @@ namespace PruebaSoftcaribbean
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors((config) => {
+                config.AllowAnyHeader();
+                config.AllowAnyOrigin();
+                config.AllowAnyMethod();
+            });
 
             app.UseAuthorization();
 

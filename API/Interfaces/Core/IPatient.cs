@@ -9,7 +9,8 @@ namespace Interfaces.Core
 {
     public interface IPatient
     {
-        Task InsertNewPatient(Paciente entityInsert);
+        Task InsertNewPatient(Persona newPerson, Paciente entityInsert);
         Task<List<Persona>> GetAllPatients();
+        Task<List<Paciente>> GetAll();
     }
 }

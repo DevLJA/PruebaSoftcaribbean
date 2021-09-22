@@ -50,12 +50,13 @@ namespace Data.Implementation.Generic
             }
         }
 
-        public async Task Insert(TEntity entityInsert)
+        public async Task<TEntity> Insert(TEntity entityInsert)
         {
             using (var context = GetContext())
             {
                 context.Set<TEntity>().Add(entityInsert);
                 await context.SaveChangesAsync();
+                return entityInsert;
             }
         }
 

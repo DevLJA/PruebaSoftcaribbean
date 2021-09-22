@@ -16,4 +16,10 @@ namespace Data.Implementation
     public class PersonData : DataGenericCRUD<Persona>
     {
     }
+    public class PersonTypeData : DataGenericCRUD<TiposPersona>
+    {
+    }
+    public class GendersData : DataGenericCRUD<Genero>
+    {
+    }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CzIOaz8vh+O1P7xXzSx0mHZr2O9I1LvrW30mbcJDF4qQqougqfTHBwhQ5GEoCG97YfDqzaVlKmUZF6iU+WwmIQ==",
+  "dgSpecHash": "Ub9ya6LNk1kUD615zcL7Ss+L70J5zFYNc9vYmyZL/5oEXR/dQukVxNvfJB5CGTmzxBNAD/faWVNQFiM0dJc42g==",
   "success": true,
-  "projectFilePath": "D:\\Users\\LauraJoya\\source\\repos\\SolucionPrueba\\API\\PruebaSoftcaribbean\\PruebaSoftcaribbean.csproj",
+  "projectFilePath": "D:\\Users\\LauraJoya\\source\\repos\\Final\\PruebaSoftcaribbean\\API\\PruebaSoftcaribbean\\PruebaSoftcaribbean.csproj",
   "expectedPackageFiles": [
     "D:\\Users\\LauraJoya\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.10\\microsoft.aspnetcore.jsonpatch.5.0.10.nupkg.sha512",
     "D:\\Users\\LauraJoya\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.10\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.10.nupkg.sha512",

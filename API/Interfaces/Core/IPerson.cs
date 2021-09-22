@@ -11,5 +11,7 @@ namespace Interfaces.Core
     {
         Task InsertNewPerson(Persona entityInsert);
         Task UpdatePerson(Persona entityUpdate);
+        Task<List<Persona>> GetAll();
+        Task<List<Persona>> GetAllMedical();
     }
 }
