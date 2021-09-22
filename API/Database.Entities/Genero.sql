@@ -1,0 +1,6 @@
+﻿CREATE TABLE Genero
+(
+id INTEGER NOT NULL IDENTITY(1,1),
+descripcion VARCHAR(50) ,
+CONSTRAINT PK_Genero PRIMARY KEY (id),
+)

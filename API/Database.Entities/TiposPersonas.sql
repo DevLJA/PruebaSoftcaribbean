@@ -1,0 +1,6 @@
+﻿CREATE TABLE TiposPersonas
+(
+id INTEGER NOT NULL IDENTITY(1,1),
+descripcion VARCHAR(50) ,
+CONSTRAINT PK_TiposPersonas PRIMARY KEY (id),
+)

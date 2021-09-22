@@ -1,0 +1,10 @@
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\bin\Debug\Database.Entities.dacpac
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\bin\Debug\Database.Entities.dll
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\bin\Debug\Database.Entities.pdb
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\Database.Entities.sqlproj.AssemblyReference.cache
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\Model.xml
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\refactor.xml
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\postdeploy.sql
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\predeploy.sql
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\Database.Entities.dll
+D:\Users\LauraJoya\source\repos\Final\PruebaSoftcaribbean\API\Database.Entities\obj\Debug\Database.Entities.pdb

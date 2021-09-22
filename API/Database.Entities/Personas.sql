@@ -1,0 +1,21 @@
+﻿CREATE TABLE Personas
+(
+nmid INTEGER NOT NULL IDENTITY(1,1),
+cddocumento VARCHAR(20) NOT NULL,
+dsnombres VARCHAR(60) ,
+dsapellidos VARCHAR(60) ,
+fenacimiento DATE,
+cdtipo INTEGER ,
+cdgenero INTEGER,
+feregistro DATETIME,
+febaja DATETIME,
+cdusuario VARCHAR(150) ,
+dsdireccion VARCHAR(200) ,
+dsphoto VARCHAR(500) ,
+cdtelfono_fijo VARCHAR(20) ,
+cdtelefono_movil VARCHAR(20) ,
+ds_email VARCHAR(200) ,
+CONSTRAINT PK_Personas PRIMARY KEY (nmid),
+CONSTRAINT FK01_Personas_TiposPersonas FOREIGN KEY (cdtipo) REFERENCES TiposPersonas(id),
+CONSTRAINT FK01_Personas_Genero FOREIGN KEY (cdgenero) REFERENCES Genero(id),
+)

@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaSoftcaribbean", "PruebaSoftcaribbean\PruebaSoftcaribbean.csproj", "{D63F82E2-CECE-4F37-A9E1-1BD893C8D759}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaSoftcaribbean", "PruebaSoftcaribbean\PruebaSoftcaribbean.csproj", "{D63F82E2-CECE-4F37-A9E1-1BD893C8D759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{25E631FA-D824-4040-814E-776C011D55BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "Interfaces\Interfaces.csproj", "{25E631FA-D824-4040-814E-776C011D55BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{DA29DB09-5ACB-41EA-8BDE-0968F850C447}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{DA29DB09-5ACB-41EA-8BDE-0968F850C447}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{C2967982-622F-4748-9C60-701FE635282E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{C2967982-622F-4748-9C60-701FE635282E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{A384D4DD-C720-40BB-A655-BE6DBF1776DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{A384D4DD-C720-40BB-A655-BE6DBF1776DB}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database.Entities", "Database.Entities\Database.Entities.sqlproj", "{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,12 @@ Global
 		{A384D4DD-C720-40BB-A655-BE6DBF1776DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A384D4DD-C720-40BB-A655-BE6DBF1776DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A384D4DD-C720-40BB-A655-BE6DBF1776DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA7D803-42B5-4FD0-9E6B-B4C01E8A4447}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
