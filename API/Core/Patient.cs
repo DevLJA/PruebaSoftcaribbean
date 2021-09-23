@@ -21,6 +21,7 @@ namespace Core
         public async Task InsertNewPatient(Persona personInsert, Paciente entityInsert)
         {
             personInsert.PacienteNmidMedicotraNavigations = null;
+            personInsert.PacienteNmidPersonaNavigations = null;
             var newPerson = await PersonDataCRUD.Insert(personInsert);
             entityInsert.NmidPersona = newPerson.Nmid;
             await PatientDataCRUD.Insert(entityInsert);

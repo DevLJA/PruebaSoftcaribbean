@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIService } from 'src/app/API/api.service';
+import Swal from 'sweetalert2';
 
 export class PacientRelation {
   constructor(
@@ -33,8 +34,8 @@ export class PersonComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.form.value.PacienteNmidMedicotraNavigations = new Array;
-    this.form.value.PacienteNmidMedicotraNavigations.push(new PacientRelation
+    this.form.value.PacienteNmidPersonaNavigations = new Array;
+    this.form.value.PacienteNmidPersonaNavigations.push(new PacientRelation
       (
         this.form.value.NmidMedicotra != '' ? this.form.value.NmidMedicotra : 0,
         this.form.value.Dseps,
@@ -42,12 +43,30 @@ export class PersonComponent implements OnInit {
         this.form.value.Cdusuario,
         this.form.value.Dscondicion,
       ));
-    console.log(this.form.value)
     this.API.sendFormNewPerson(this.form.value).subscribe(response => {
-      alert(response);
-      for (var name in this.form.controls) {
-        (this.form.controls[name]).updateValue('');
-        this.form.controls[name].setErrors(null);
+      if (response.successful) {
+        Swal.fire('Proceso ejecutado', 'Se creó o se actualizó la persona de manera correcta', 'success')
+        this.API.getAll().subscribe(
+          response => {
+            this.people = response.response;
+          }
+        );
+        this.API.getAllMedical().subscribe(
+          response => {
+            this.medical = response.response;
+          }
+        );
+        for (var name in this.form.controls) {
+          (this.form.controls[name]).setValue('');
+          (this.form.controls[name]).setErrors(null);
+        }
+      }
+      else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se presentó un error en el sistema'
+        })
       }
     });
   }
@@ -63,7 +82,7 @@ export class PersonComponent implements OnInit {
       Cddocumento: [showInfo.cddocumento != null ? showInfo.cddocumento : '', Validators.required],
       Dsnombres: [showInfo.dsnombres != null ? showInfo.dsnombres : '', Validators.required],
       Dsapellidos: [showInfo.dsapellidos != null ? showInfo.dsapellidos : '', Validators.required],
-      Fenacimiento: [showInfo.fenacimiento != null ? showInfo.fenacimiento : '', Validators.required],
+      Fenacimiento: [showInfo.fenacimiento != null ? showInfo.fenacimiento.split('T')[0] : '', Validators.required],
       Cdtipo: [showInfo.cdtipo != null ? showInfo.cdtipo : '', Validators.required],
       Cdgenero: [showInfo.cdgenero != null ? showInfo.cdgenero : '', Validators.required],
       Dsdireccion: [showInfo.dsdireccion != null ? showInfo.dsdireccion : '', Validators.required],

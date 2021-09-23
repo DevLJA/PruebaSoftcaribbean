@@ -48,10 +48,11 @@ namespace Core
                 if ((entityInsert.Cdtipo != Constants.PATIENT))
                 {
                     entityInsert.PacienteNmidMedicotraNavigations = null;
+                    entityInsert.PacienteNmidPersonaNavigations = null;
                     await PersonDataCRUD.Insert(entityInsert);
                 }
                 else
-                    await Patient.InsertNewPatient(entityInsert, entityInsert.PacienteNmidMedicotraNavigations.First());
+                    await Patient.InsertNewPatient(entityInsert, entityInsert.PacienteNmidPersonaNavigations.First());
             }
             else
                 await UpdatePerson(entityInsert);
@@ -59,17 +60,17 @@ namespace Core
 
         public async Task UpdatePerson(Persona entityUpdate)
         {
-            var entity = await PersonDataCRUD.GetListIncludeProperties(x => x.Cddocumento.Equals(entityUpdate.Cddocumento), x => x.PacienteNmidMedicotraNavigations);
+            var entity = await PersonDataCRUD.GetListIncludeProperties(x => x.Cddocumento.Equals(entityUpdate.Cddocumento), x => x.PacienteNmidPersonaNavigations);
             var firstElement = entity.FirstOrDefault();
             if (firstElement != null)
             {
                 entityUpdate.Nmid = firstElement.Nmid;
-                if (entityUpdate.PacienteNmidMedicotraNavigations != null && entityUpdate.PacienteNmidMedicotraNavigations.Count > 0 && entityUpdate.Cdtipo == Constants.PATIENT)
+                if (entityUpdate.PacienteNmidPersonaNavigations != null && entityUpdate.PacienteNmidPersonaNavigations.Count > 0 && entityUpdate.Cdtipo == Constants.PATIENT)
                 {
-                    entityUpdate.PacienteNmidMedicotraNavigations.FirstOrDefault().NmidPersona = firstElement.Nmid;
-                    int? infoPatient = firstElement?.PacienteNmidMedicotraNavigations?.FirstOrDefault()?.Nmid;
+                    entityUpdate.PacienteNmidPersonaNavigations.FirstOrDefault().NmidPersona = firstElement.Nmid;
+                    int? infoPatient = firstElement?.PacienteNmidPersonaNavigations?.FirstOrDefault()?.Nmid;
                     if (infoPatient != null)
-                        entityUpdate.PacienteNmidMedicotraNavigations.FirstOrDefault().Nmid = infoPatient.Value;
+                        entityUpdate.PacienteNmidPersonaNavigations.FirstOrDefault().Nmid = infoPatient.Value;
                 }
                 else
                     entityUpdate.PacienteNmidMedicotraNavigations = null;
