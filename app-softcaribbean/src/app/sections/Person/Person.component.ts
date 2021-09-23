@@ -22,7 +22,6 @@ export class PersonComponent implements OnInit {
   genders: any;
   people: any;
   medical: any;
-  style: any;
   PacienteNmidMedicotraNavigations: any;
   submitted = false;
   constructor(private formBuilder: FormBuilder, private API: APIService) {
@@ -53,47 +52,35 @@ export class PersonComponent implements OnInit {
   }
 
   onChange(personDocument: any) {
-    console.log('Cambio');
-    var showInfo = this.people.filter((x: any) => x.Cddocumento === personDocument);
-    console.log(showInfo);
-    this.form = this.formBuilder.group({
-      Cddocumento: [showInfo.cddocumento, Validators.required],
-      Dsnombres: ['', Validators.required],
-      Dsapellidos: ['', Validators.required],
-      Fenacimiento: ['', Validators.required],
-      Cdtipo: ['', Validators.required],
-      Cdgenero: ['', Validators.required],
-      Dsdireccion: ['', Validators.required],
-      CdtelfonoFijo: ['', Validators.required],
-      CdtelefonoMovil: ['', Validators.required],
-      DsEmail: ['', [Validators.required, Validators.email]],
-      NmidMedicotra: ['', []],
-      Dseps: ['', []],
-      Dsarl: ['', []],
-      Cdusuario: ['', []],
-      Dscondicion: ['', []]
+    var showInfo = this.people.filter((x: any) => x.cddocumento == personDocument.value)[0];
+    this.form = this.uploadData(showInfo != null ? showInfo : new Object());
+  }
+
+  uploadData(showInfo: any) {
+    var patientCorrect = showInfo.pacienteNmidPersonaNavigations != null && showInfo.pacienteNmidPersonaNavigations.length > 0;
+    console.log(new Date(showInfo.fenacimiento).toLocaleDateString('en-GB'))
+    return this.formBuilder.group({
+      Cddocumento: [showInfo.cddocumento != null ? showInfo.cddocumento : '', Validators.required],
+      Dsnombres: [showInfo.dsnombres != null ? showInfo.dsnombres : '', Validators.required],
+      Dsapellidos: [showInfo.dsapellidos != null ? showInfo.dsapellidos : '', Validators.required],
+      Fenacimiento: [showInfo.fenacimiento != null ? new Date(showInfo.fenacimiento).toLocaleDateString('en-GB') : '', Validators.required],
+      Cdtipo: [showInfo.cdtipo != null ? showInfo.cdtipo : '', Validators.required],
+      Cdgenero: [showInfo.cdgenero != null ? showInfo.cdgenero : '', Validators.required],
+      Dsdireccion: [showInfo.dsdireccion != null ? showInfo.dsdireccion : '', Validators.required],
+      CdtelfonoFijo: [showInfo.cdtelfonoFijo != null ? showInfo.cdtelfonoFijo : '', Validators.required],
+      CdtelefonoMovil: [showInfo.cdtelefonoMovil != null ? showInfo.cdtelefonoMovil : '', Validators.required],
+      DsEmail: [showInfo.dsEmail != null ? showInfo.dsEmail : '', [Validators.required, Validators.email]],
+      NmidMedicotra: [patientCorrect ? showInfo.pacienteNmidPersonaNavigations[0].nmidMedicotra : '', []],
+      Dseps: [patientCorrect ? showInfo.pacienteNmidPersonaNavigations[0].dseps : '', []],
+      Dsarl: [patientCorrect ? showInfo.pacienteNmidPersonaNavigations[0].dsarl : '', []],
+      Cdusuario: [patientCorrect ? showInfo.pacienteNmidPersonaNavigations[0].cdusuario : '', []],
+      Dscondicion: [patientCorrect ? showInfo.pacienteNmidPersonaNavigations[0].dscondicion : '', []]
     });
   }
 
   ngOnInit() {
-    this.style = "style='display:block'";
-    this.form = this.formBuilder.group({
-      Cddocumento: ['', Validators.required],
-      Dsnombres: ['', Validators.required],
-      Dsapellidos: ['', Validators.required],
-      Fenacimiento: ['', Validators.required],
-      Cdtipo: ['', Validators.required],
-      Cdgenero: ['', Validators.required],
-      Dsdireccion: ['', Validators.required],
-      CdtelfonoFijo: ['', Validators.required],
-      CdtelefonoMovil: ['', Validators.required],
-      DsEmail: ['', [Validators.required, Validators.email]],
-      NmidMedicotra: ['', []],
-      Dseps: ['', []],
-      Dsarl: ['', []],
-      Cdusuario: ['', []],
-      Dscondicion: ['', []]
-    });
+    this.form = this.uploadData(new Object());
+    this.form.controls['Fenacimiento'].setValue('08/09/2021');
     this.API.getAllGender().subscribe(
       response => {
         this.genders = response.response;

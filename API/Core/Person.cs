@@ -22,7 +22,16 @@ namespace Core
 
         public async Task<List<Persona>> GetAll()
         {
-            return await PersonDataCRUD.GetList();
+            var result = await PersonDataCRUD.GetListIncludeProperties(x => true, x => x.PacienteNmidPersonaNavigations);
+            result.ForEach(x =>
+            {
+                if (x.PacienteNmidPersonaNavigations != null && x.PacienteNmidPersonaNavigations.Count > 0)
+                {
+                    x.PacienteNmidPersonaNavigations.First().NmidMedicotraNavigation = null;
+                    x.PacienteNmidPersonaNavigations.First().NmidPersonaNavigation = null;
+                }
+            });
+            return result;
         }
 
         public async Task<List<Persona>> GetAllMedical()
@@ -32,22 +41,38 @@ namespace Core
 
         public async Task InsertNewPerson(Persona entityInsert)
         {
-            entityInsert.Feregistro = DateTime.Now;
-            if ((entityInsert.Cdtipo != Constants.PATIENT))
-                await PersonDataCRUD.Insert(entityInsert);
+            var entity = await PersonDataCRUD.GetByWhere(x => x.Cddocumento.Equals(entityInsert.Cddocumento));
+            if (entity == null)
+            {
+                entityInsert.Feregistro = DateTime.Now;
+                if ((entityInsert.Cdtipo != Constants.PATIENT))
+                {
+                    entityInsert.PacienteNmidMedicotraNavigations = null;
+                    await PersonDataCRUD.Insert(entityInsert);
+                }
+                else
+                    await Patient.InsertNewPatient(entityInsert, entityInsert.PacienteNmidMedicotraNavigations.First());
+            }
             else
-                await Patient.InsertNewPatient(entityInsert, entityInsert.PacienteNmidMedicotraNavigations.First());
+                await UpdatePerson(entityInsert);
         }
 
         public async Task UpdatePerson(Persona entityUpdate)
         {
-            var entity = await PersonDataCRUD.GetByWhere(x => x.Cddocumento.Equals(entityUpdate.Cddocumento));
-
-            if (entity != null)
+            var entity = await PersonDataCRUD.GetListIncludeProperties(x => x.Cddocumento.Equals(entityUpdate.Cddocumento), x => x.PacienteNmidMedicotraNavigations);
+            var firstElement = entity.FirstOrDefault();
+            if (firstElement != null)
             {
-                entityUpdate.Nmid = entity.Nmid;
-                if (entityUpdate.PacienteNmidPersonaNavigations != null && entityUpdate.PacienteNmidPersonaNavigations.Count > 0)
-                    entityUpdate.PacienteNmidPersonaNavigations.FirstOrDefault().NmidPersona = entity.Nmid;
+                entityUpdate.Nmid = firstElement.Nmid;
+                if (entityUpdate.PacienteNmidMedicotraNavigations != null && entityUpdate.PacienteNmidMedicotraNavigations.Count > 0 && entityUpdate.Cdtipo == Constants.PATIENT)
+                {
+                    entityUpdate.PacienteNmidMedicotraNavigations.FirstOrDefault().NmidPersona = firstElement.Nmid;
+                    int? infoPatient = firstElement?.PacienteNmidMedicotraNavigations?.FirstOrDefault()?.Nmid;
+                    if (infoPatient != null)
+                        entityUpdate.PacienteNmidMedicotraNavigations.FirstOrDefault().Nmid = infoPatient.Value;
+                }
+                else
+                    entityUpdate.PacienteNmidMedicotraNavigations = null;
             }
             else
                 throw new Exception(Constants.NOT_FOUND);

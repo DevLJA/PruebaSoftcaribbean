@@ -2,138 +2,143 @@
 
   <div class="starter-template">
 
-    <div class="row" style="padding: 5% 20%">
+    <div class="row" style="padding: 2% 5%">
       <div class="card">
         <h5 class="card-header"><b>Registrar o actualizar persona</b></h5>
         <div class="card-body">
           <div class="form-group">
             <label for="Cdtipo"> Actualizar persona ya existente</label>
-            <select (change)="onChange('$event.target.value')" class="form-control" >
+            <select (change)="onChange($event.target)" class="form-control">
               <option>Seleccionar</option>
-              <option *ngFor="let person of people" [value]="person.cddocumento">{{person.cddocumento}} {{person.dsnombres}}</option>
+              <option *ngFor="let person of people" [value]="person.cddocumento">{{person.cddocumento}}
+                {{person.dsnombres}}</option>
             </select>
             <div *ngIf="submitted && f.Cdtipo.errors" class="invalid-feedback">
               <div *ngIf="f.Cdtipo.errors.required">Por favor, Selecciona el tipo de persona</div>
             </div>
           </div>
           <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label>Número de documento</label>
-              <input type="text" formControlName="Cddocumento" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.Cddocumento.errors }" />
-              <div *ngIf="submitted && f.Cddocumento.errors" class="invalid-feedback">
-                <div *ngIf="f.Cddocumento.errors.required">Por favor, ingresa el número de documento</div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Número de documento</label>
+                  <input type="text" formControlName="Cddocumento" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Cddocumento.errors }" />
+                  <div *ngIf="submitted && f.Cddocumento.errors" class="invalid-feedback">
+                    <div *ngIf="f.Cddocumento.errors.required">Por favor, ingresa el número de documento</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Nombre(s)</label>
+                  <input type="text" formControlName="Dsnombres" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Dsnombres.errors }" />
+                  <div *ngIf="submitted && f.Dsnombres.errors" class="invalid-feedback">
+                    <div *ngIf="f.Dsnombres.errors.required">Por favor, ingresa el nombre</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Apellido(s)</label>
+                  <input type="text" formControlName="Dsapellidos" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Dsapellidos.errors }" />
+                  <div *ngIf="submitted && f.Dsapellidos.errors" class="invalid-feedback">
+                    <div *ngIf="f.Dsapellidos.errors.required">Por favor, ingresa el apellido</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Fecha nacimiento</label>
+                  <input type="date" formControlName="Fenacimiento" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Fenacimiento.errors }" />
+                  <div *ngIf="submitted && f.Fenacimiento.errors" class="invalid-feedback">
+                    <div *ngIf="f.Fenacimiento.errors.required">Por favor, ingresa la fecha de nacimiento</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="Cdtipo"> Tipo persona</label>
+                  <select class="form-control" formControlName="Cdtipo"
+                    [ngClass]="{ 'is-invalid': submitted && f.Cdtipo.errors }">
+                    <option *ngFor="let type of personType" value={{type.id}}>{{type.descripcion}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.Cdtipo.errors" class="invalid-feedback">
+                    <div *ngIf="f.Cdtipo.errors.required">Por favor, Selecciona el tipo de persona</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="Cdtipo">Genero</label>
+                  <select class="form-control" formControlName="Cdgenero"
+                    [ngClass]="{ 'is-invalid': submitted && f.Cdgenero.errors }">
+                    <option *ngFor="let gender of genders" value={{gender.id}}>{{gender.descripcion}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.Cdgenero.errors" class="invalid-feedback">
+                    <div *ngIf="f.Cdgenero.errors.required">Por favor, Selecciona el género</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Dirección</label>
+                  <input type="text" formControlName="Dsdireccion" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Dsdireccion.errors }" />
+                  <div *ngIf="submitted && f.Dsdireccion.errors" class="invalid-feedback">
+                    <div *ngIf="f.Dsdireccion.errors.required">Por favor, ingresa la dirección</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Telefóno fijo</label>
+                  <input type="text" formControlName="CdtelfonoFijo" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.CdtelfonoFijo.errors }" />
+                  <div *ngIf="submitted && f.CdtelfonoFijo.errors" class="invalid-feedback">
+                    <div *ngIf="f.CdtelfonoFijo.errors.required">Por favor, ingresa el teléfono fijo</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Telefóno móvil</label>
+                  <input type="text" formControlName="CdtelefonoMovil" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.CdtelefonoMovil.errors }" />
+                  <div *ngIf="submitted && f.CdtelefonoMovil.errors" class="invalid-feedback">
+                    <div *ngIf="f.CdtelefonoMovil.errors.required">Por favor, ingresa el teléfono móvil</div>
+                  </div>
+                </div>
+                <div class="form-group" style="padding-bottom: 5%;">
+                  <label>Email</label>
+                  <input type="text" formControlName="DsEmail" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.DsEmail.errors }" />
+                  <div *ngIf="submitted && f.DsEmail.errors" class="invalid-feedback">
+                    <div *ngIf="f.DsEmail.errors.required">El email es obligatorio</div>
+                    <div *ngIf="f.DsEmail.errors.email">Por favor, ingresa tu Email</div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label>Nombre(s)</label>
-              <input type="text" formControlName="Dsnombres" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.Dsnombres.errors }" />
-              <div *ngIf="submitted && f.Dsnombres.errors" class="invalid-feedback">
-                <div *ngIf="f.Dsnombres.errors.required">Por favor, ingresa el nombre</div>
+              <div class="col-md-6" style="padding-top: 2%;">
+                <label>Campos que aplican para un paciente***</label>
+                <div class="form-group">
+                  <label for="NmidMedicotra">Médico tratante</label>
+                  <select class="form-control" formControlName="NmidMedicotra"
+                    [ngClass]="{ 'is-invalid': submitted && f.NmidMedicotra.errors }">
+                    <option *ngFor="let person of medical" value={{person.nmid}}>{{person.dsnombres}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>EPS</label>
+                  <input type="text" formControlName="Dseps" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Dseps.errors }" />
+                </div>
+                <div class="form-group">
+                  <label>ARL</label>
+                  <input type="text" formControlName="Dsarl" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Dsarl.errors }" />
+                </div>
+                <div class="form-group">
+                  <label>Cdusuario</label>
+                  <input type="text" formControlName="Cdusuario" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Cdusuario.errors }" />
+                </div>
+                <div class="form-group">
+                  <label>Condición</label>
+                  <input type="text" formControlName="Dscondicion" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.Dscondicion.errors }" />
+                </div>
               </div>
-            </div>
-            <div class="form-group">
-              <label>Apellido(s)</label>
-              <input type="text" formControlName="Dsapellidos" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.Dsapellidos.errors }" />
-              <div *ngIf="submitted && f.Dsapellidos.errors" class="invalid-feedback">
-                <div *ngIf="f.Dsapellidos.errors.required">Por favor, ingresa el apellido</div>
+              <div class="form-group" style="text-align: right;">
+                <button class="btn btn-dark">Aceptar</button>
               </div>
-            </div>
-            <div class="form-group">
-              <label>Fecha nacimiento</label>
-              <input type="date" formControlName="Fenacimiento" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.Fenacimiento.errors }" />
-              <div *ngIf="submitted && f.Fenacimiento.errors" class="invalid-feedback">
-                <div *ngIf="f.Fenacimiento.errors.required">Por favor, ingresa la fecha de nacimiento</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="Cdtipo"> Tipo persona</label>
-              <select  class="form-control" formControlName="Cdtipo"
-                [ngClass]="{ 'is-invalid': submitted && f.Cdtipo.errors }">
-                <option *ngFor="let type of personType" value={{type.id}}>{{type.descripcion}}</option>
-              </select>
-              <div *ngIf="submitted && f.Cdtipo.errors" class="invalid-feedback">
-                <div *ngIf="f.Cdtipo.errors.required">Por favor, Selecciona el tipo de persona</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="Cdtipo">Genero</label>
-              <select class="form-control" formControlName="Cdgenero"
-                [ngClass]="{ 'is-invalid': submitted && f.Cdgenero.errors }">
-                <option *ngFor="let gender of genders" value={{gender.id}}>{{gender.descripcion}}</option>
-              </select>
-              <div *ngIf="submitted && f.Cdgenero.errors" class="invalid-feedback">
-                <div *ngIf="f.Cdgenero.errors.required">Por favor, Selecciona el género</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Dirección</label>
-              <input type="text" formControlName="Dsdireccion" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.Dsdireccion.errors }" />
-              <div *ngIf="submitted && f.Dsdireccion.errors" class="invalid-feedback">
-                <div *ngIf="f.Dsdireccion.errors.required">Por favor, ingresa la dirección</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Telefóno fijo</label>
-              <input type="text" formControlName="CdtelfonoFijo" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.CdtelfonoFijo.errors }" />
-              <div *ngIf="submitted && f.CdtelfonoFijo.errors" class="invalid-feedback">
-                <div *ngIf="f.CdtelfonoFijo.errors.required">Por favor, ingresa el teléfono fijo</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Telefóno móvil</label>
-              <input type="text" formControlName="CdtelefonoMovil" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.CdtelefonoMovil.errors }" />
-              <div *ngIf="submitted && f.CdtelefonoMovil.errors" class="invalid-feedback">
-                <div *ngIf="f.CdtelefonoMovil.errors.required">Por favor, ingresa el teléfono móvil</div>
-              </div>
-            </div>
-            <div class="form-group" style="padding-bottom: 5%;">
-              <label>Email</label>
-              <input type="text" formControlName="DsEmail" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.DsEmail.errors }" />
-              <div *ngIf="submitted && f.DsEmail.errors" class="invalid-feedback">
-                <div *ngIf="f.DsEmail.errors.required">El email es obligatorio</div>
-                <div *ngIf="f.DsEmail.errors.email">Por favor, ingresa tu Email</div>
-              </div>
-            </div>
-            <div>
-              <label>Campos que aplican para un paciente***</label>
-              <div class="form-group">
-                <label for="NmidMedicotra">Médico tratante</label>
-                <select class="form-control" formControlName="NmidMedicotra"
-                  [ngClass]="{ 'is-invalid': submitted && f.NmidMedicotra.errors }">
-                  <option *ngFor="let person of medical" value={{person.nmid}}>{{person.dsnombres}}</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>EPS</label>
-                <input type="text" formControlName="Dseps" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.Dseps.errors }" />
-              </div>
-              <div class="form-group">
-                <label>ARL</label>
-                <input type="text" formControlName="Dsarl" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.Dsarl.errors }" />
-              </div>
-              <div class="form-group">
-                <label>Cdusuario</label>
-                <input type="text" formControlName="Cdusuario" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.Cdusuario.errors }" />
-              </div>
-              <div class="form-group">
-                <label>Condición</label>
-                <input type="text" formControlName="Dscondicion" class="form-control"
-                  [ngClass]="{ 'is-invalid': submitted && f.Dscondicion.errors }" />
-              </div>
-            </div>
-            <div class="form-group" style="text-align: right;">
-              <button class="btn btn-dark">Aceptar</button>
             </div>
           </form>
         </div>
