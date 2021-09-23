@@ -36,12 +36,13 @@ export class PersonComponent implements OnInit {
     this.form.value.PacienteNmidMedicotraNavigations = new Array;
     this.form.value.PacienteNmidMedicotraNavigations.push(new PacientRelation
       (
-        this.form.value.NmidMedicotra,
+        this.form.value.NmidMedicotra != '' ? this.form.value.NmidMedicotra : 0,
         this.form.value.Dseps,
         this.form.value.Dsarl,
         this.form.value.Cdusuario,
         this.form.value.Dscondicion,
       ));
+    console.log(this.form.value)
     this.API.sendFormNewPerson(this.form.value).subscribe(response => {
       alert(response);
       for (var name in this.form.controls) {
@@ -58,12 +59,11 @@ export class PersonComponent implements OnInit {
 
   uploadData(showInfo: any) {
     var patientCorrect = showInfo.pacienteNmidPersonaNavigations != null && showInfo.pacienteNmidPersonaNavigations.length > 0;
-    console.log(new Date(showInfo.fenacimiento).toLocaleDateString('en-GB'))
     return this.formBuilder.group({
       Cddocumento: [showInfo.cddocumento != null ? showInfo.cddocumento : '', Validators.required],
       Dsnombres: [showInfo.dsnombres != null ? showInfo.dsnombres : '', Validators.required],
       Dsapellidos: [showInfo.dsapellidos != null ? showInfo.dsapellidos : '', Validators.required],
-      Fenacimiento: [showInfo.fenacimiento != null ? new Date(showInfo.fenacimiento).toLocaleDateString('en-GB') : '', Validators.required],
+      Fenacimiento: [showInfo.fenacimiento != null ? showInfo.fenacimiento : '', Validators.required],
       Cdtipo: [showInfo.cdtipo != null ? showInfo.cdtipo : '', Validators.required],
       Cdgenero: [showInfo.cdgenero != null ? showInfo.cdgenero : '', Validators.required],
       Dsdireccion: [showInfo.dsdireccion != null ? showInfo.dsdireccion : '', Validators.required],
@@ -80,7 +80,6 @@ export class PersonComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.uploadData(new Object());
-    this.form.controls['Fenacimiento'].setValue('08/09/2021');
     this.API.getAllGender().subscribe(
       response => {
         this.genders = response.response;

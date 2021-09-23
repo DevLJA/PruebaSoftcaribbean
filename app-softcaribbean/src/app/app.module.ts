@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PersonComponent } from './sections/Person/Person.component';
 import { ReportPatientComponent } from './sections/ReportPatient/ReportPatient.component';
 import { MenuComponent } from './sections/Menu/Menu.component';
+import { FooterComponent } from './sections/Footer/Footer.component';
 
 
 
@@ -18,7 +19,8 @@ import { MenuComponent } from './sections/Menu/Menu.component';
     AppComponent,
     PersonComponent,
     ReportPatientComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
